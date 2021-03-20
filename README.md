@@ -93,3 +93,9 @@ It is required for dynamic scaling.
 service registry microservice will hold details of each micro service and its network information. it keep tracks of the available instances of the microservices.
 
 On the service startup, the service send a request to register component and register itself. Similarly, when it is shutdown, it will send a request to the registry component to remove the detail. The registry component periodically make health check calls with the each of the registered services.
+
+
+Microservice Discovery:
+
+client side discovery:
+
