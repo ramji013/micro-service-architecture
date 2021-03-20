@@ -52,7 +52,7 @@ Pros:
 2. Easier to version the entire repo with a build number
 
 Cons:
-1. multiple teams work in the same repo can cause some dependency issue with CI/CD deployment
+1. multiple teams work in the same repo can cause code breakage and create dependency issue with CI/CD deployment
 2. high possibility of creating tight coupling of code
 3. as large code base, it take longer time to build and deploy
 
