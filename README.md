@@ -24,3 +24,9 @@ Challenges:
 2. lack of Knowledge
 3. skill
 4. time
+
+How to avoid project failure
+
+1. identify the requirement that to cover in the services
+2. automate the activities such as CI/CD
+3. Avoid common pifalls and use proper design pattern.
