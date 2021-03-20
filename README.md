@@ -57,4 +57,31 @@ Cons:
 3. as large code base, it take longer time to build and deploy
 
 
+Discre repo:
+
+Pros:
+Scope and ownership of the repository will be much clearer
+
+Cons:
+1. Contract versioning become more complex
+2. If not managed properly it may become monothic
+3. More cost for setting environment for each services including CI/CD pipeline
+
+
+Communication:
+
+inter service communication:
+
+It can be done using synchronous and asynchornous way.
+
+Synchronous:
+
+RPI - Reporte procedure invocation
+
+A service send a request to another service and wait for its response to proceed further.
+
+
+Asynchronous:
+
+messaging bus: A micro service park a message in a queue and another micro service will read it from there (publish-subscribe pattern). 
 
