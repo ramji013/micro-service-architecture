@@ -10,3 +10,17 @@ Advantage:
 3. Promotes parallel development
 4. Promotes scalability
 
+
+Drawbacks:
+
+1. Higher infrastructure cost
+2. Integration testing complexity
+3. Service management & deployment
+4. nanoservice anti pattern 
+
+Challenges:
+
+1. lack of Planning
+2. lack of Knowledge
+3. skill
+4. time
