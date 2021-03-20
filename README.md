@@ -99,3 +99,31 @@ Microservice Discovery:
 
 client side discovery:
 
+a micro service will call service registry and get the network information about the target/destination server details and once obtained it will the endpoint
+
+Server side discovery:
+
+a micro service will directly call load balancer which will take responsibility to call service registry to know the target enpoint details and once obtained it will make the call. The issue with this approach is multiple network call required. Also, the Load balancer component plays a critical role, we need to ensure that component availability all the time.
+
+
+DataBase:
+
+1. Shared database  - it will cause latency in db and two services may attempt to update on a data same time.
+2. Database per service. - it will bring coupling between services which a bit complex to write queries which satisfies the requirement of each dependent services. This can be avoided by Api composition and Event sourcing.
+
+
+API composition:
+
+it acts as a centeral component and make a call to underlying services and aggregate the response from them and send it back.
+Issue with this is, the underlying services sometime may return bulk response and the parent may not be able to handle such case which impact the performance.
+
+
+Event source:
+
+It acts as a message broker and each component will register for events.
+
+Lets say services A, B & C which perform some actions. The service A updates some data in its DB and also publish the information about the update into the Event store. The services B & C registered with the Event store to receive the information about the update. 
+
+
+
+
