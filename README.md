@@ -30,3 +30,31 @@ How to avoid project failure
 1. identify the requirement that to cover in the services
 2. automate the activities such as CI/CD
 3. Avoid common pifalls and use proper design pattern.
+
+
+Microservice Template:
+
+It is much important becuase of below reasons
+
+1. For any project, it take initially significant amount of time to setup
+2. Code repetition on each micro-service setup
+3. Connection setup for DB, message brokers
+4. Unit testing project structure
+
+
+Code repository:
+
+Mono-repo
+
+Pros:
+
+1. Easier to keep input/output contracts in sync
+2. Easier to version the entire repo with a build number
+
+Cons:
+1. multiple teams work in the same repo can cause some dependency issue with CI/CD deployment
+2. high possibility of creating tight coupling of code
+3. as large code base, it take longer time to build and deploy
+
+
+
