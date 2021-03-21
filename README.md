@@ -127,3 +127,35 @@ Lets say services A, B & C which perform some actions. The service A updates som
 two phase commit:
 
 A coordinator involved and send message to underlying services and wait for the response. if all the services responded with successful response then it will send another request to commit the transaction. If any of the transaction failed the coordinator will send rollback message to the services to rollback the changes. if any issue happened during the commit phase with any of the service, it will return alert to reverse the previous transaction.
+
+
+Saga:
+
+It is the alternative for two phase commit in distribution transaction.
+
+Two types
+1. Choreography based saga
+2. Orchestrator based saga
+
+Failover:
+
+If any small failure in an application can bring complete system down. For example service registry is one of the critical component, if any failure occur, the secondary servers should be able to process the requests. It is important that primary and secondary servers should be in sync. Also, it is important to log the failure details for the investigation purpose.
+
+Circuit breaker:
+
+Help prevent failure for a particular microservice. A microservice try to make a call to another service, assume, due to heavy load the service taking longer time than usual, and more requests a pilled up which result the exhausting the resources. To prevent cases, circuit breaker can be used.
+
+For this case, a service call will happen through circuit breaker module which keep tracks of the failure with the specific endpoint and the number of failure exceeds its threshold it will not make a call further and if any request comes, it return the failure response immediately. After certain time, it will check the availability of the endpoint again. It gives a chance to recover the failed service.
+
+It is necessary to keep the circuit breaker module with every microservice therefore, it can be included in microservice template.
+
+Health check API:
+
+A service will return health of the application. It usually called by service registry to know the healthy state of the application. It is also good to include in the microservice template.
+
+
+Logging techniques:
+
+A request identifier can be used to track the the level of issues occurred.
+Also can be used log aggregation to combine multiple logs and check.
+Also can be used dashboards to monitor application.  
