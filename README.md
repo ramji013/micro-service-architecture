@@ -1,6 +1,6 @@
 Micro Service
 
-It is based on services and its inter communication. It is collection of light weight and loosely coupled interconnected services which perform each specific 
+It is based on services and its inter communication. It is collection of light weight and loosely coupled interconnected services which perform each specific
 function.
 
 Advantage:
@@ -16,7 +16,7 @@ Drawbacks:
 1. Higher infrastructure cost
 2. Integration testing complexity
 3. Service management & deployment
-4. nanoservice anti pattern 
+4. nanoservice anti pattern
 
 Challenges:
 
@@ -83,7 +83,7 @@ A service send a request to another service and wait for its response to proceed
 
 Asynchronous:
 
-messaging bus: A micro service park a message in a queue and another micro service will read it from there (publish-subscribe pattern). 
+messaging bus: A micro service park a message in a queue and another micro service will read it from there (publish-subscribe pattern).
 
 
 Service registry:
@@ -103,7 +103,7 @@ a micro service will call service registry and get the network information about
 
 Server side discovery:
 
-a micro service will directly call load balancer which will take responsibility to call service registry to know the target enpoint details and once obtained it will make the call. The issue with this approach is multiple network call required. Also, the Load balancer component plays a critical role, we need to ensure that component availability all the time.
+a micro service will directly call load balancer which will take responsibility to call service registry to know the target endpoint details and once obtained it will make the call. The issue with this approach is multiple network call required. Also, the Load balancer component plays a critical role, we need to ensure that component availability all the time.
 
 
 DataBase:
@@ -122,8 +122,8 @@ Event source:
 
 It acts as a message broker and each component will register for events.
 
-Lets say services A, B & C which perform some actions. The service A updates some data in its DB and also publish the information about the update into the Event store. The services B & C registered with the Event store to receive the information about the update. 
+Lets say services A, B & C which perform some actions. The service A updates some data in its DB and also publish the information about the update into the Event store. The services B & C registered with the Event store to receive the information about the update.
 
+two phase commit:
 
-
-
+A coordinator involved and send message to underlying services and wait for the response. if all the services responded with successful response then it will send another request to commit the transaction. If any of the transaction failed the coordinator will send rollback message to the services to rollback the changes. if any issue happened during the commit phase with any of the service, it will return alert to reverse the previous transaction.
